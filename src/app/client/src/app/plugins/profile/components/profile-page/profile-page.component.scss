@@ -1,4 +1,4 @@
-@import "variables"; 
+@import "variables";
 
 /* fonts */
   .font-w-bold {
@@ -76,6 +76,9 @@
   line-height: 24px !important;
 }
 
+#span-right {
+  // float: right;
+}
 .ui.semi-circular.update.basic.label {
   border: 1px solid $primary-color !important;
   border-radius: 18.5px;
@@ -87,4 +90,43 @@
 
 .text-warm-grey {
   color:#9b9b9b;
+}
+
+.ui.dodger-orange.basic.label {
+  border: 1px solid #e89353 !important;
+    border-radius: 4px;
+    color: #da671e;
+    background: antiquewhite
+}
+
+.ui.grid {
+  padding-top: 2rem;
+}
+
+.myy-avatar /deep/ .avatar-content {
+background-image: url(https://hrcdn.net/fcore/assets/profile/default_avatar_bg-fba6466c4f.png);
+color: white;    background-size: cover;
+background-color: #ffffff;
+border: 1px solid #fff;
+box-shadow: 0 0 6px 0 rgba(0,0,0,0.38);
+font-weight: bold;
+font-family: inherit;
+border-radius: 10%
+}
+
+.four.wide.column {
+  // margin-left: 6rem;
+}
+
+#var2 {
+  background-color: aliceblue;
+}
+
+#shadow {
+  box-shadow: 0 3px 10px 0 rgba(115,143,147,.3);
+}
+
+#shadow1 {
+  box-shadow: 0 3px 10px 0 rgba(115,143,147,.3);
+  background: white
 }

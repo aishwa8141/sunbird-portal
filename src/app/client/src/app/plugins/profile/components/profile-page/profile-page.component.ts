@@ -14,6 +14,10 @@ import { SubscriptionLike as ISubscription } from 'rxjs';
 import { IInteractEventInput, IImpressionEventInput, IInteractEventEdata, IInteractEventObject } from '@sunbird/telemetry';
 import { ActivatedRoute } from '@angular/router';
 import { CacheService } from 'ng2-cache-service';
+
+const count = (str, ch) => _.countBy(str)[ch] || 0;
+
+
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
@@ -24,6 +28,10 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
   * Reference of User Profile interface
   */
   userProfile: any;
+
+  useridtest: any;
+
+  abtest =  false;
 
   @ViewChild('profileModal') profileModal;
   /**
@@ -72,10 +80,20 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     fontWeight: 'bold',
     fontFamily: 'inherit'
   };
+  customStyle2 = {
+    backgroundColor: '#ffffff',
+    border: '1px solid #fff',
+    boxShadow: '0 0 6px 0 rgba(0,0,0,0.38)',
+    borderRadius: '10%',
+    color: 'white',
+    fontWeight: 'bold',
+    fontFamily: 'inherit'
+  };
   showContactPopup = false;
   showEditUserDetailsPopup = false;
   state: string;
   district: string;
+
    /**
   /**
     * Slider setting to display number of cards on the slider.
@@ -157,16 +175,14 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     ],
     infinite: false
   };
-  inputData: any;
-  /**
-  * telemetryImpression
-  */
   telemetryImpression: IImpressionEventInput;
   myFrameworkEditEdata: IInteractEventEdata;
   editProfileInteractEdata: IInteractEventEdata;
   editMobileInteractEdata: IInteractEventEdata;
   editEmailInteractEdata: IInteractEventEdata;
   telemetryInteractObject: IInteractEventObject;
+  inputData: any;
+// abtest
   constructor( private cacheService: CacheService, public resourceService: ResourceService, public coursesService: CoursesService,
     public permissionService: PermissionService, public toasterService: ToasterService, public profileService: ProfileService,
     public userService: UserService, public configService: ConfigService, public router: Router, public utilService: UtilService,
@@ -187,7 +203,8 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       (user: IUserData) => {
         if (user && !user.err) {
           this.userProfile = user.userProfile;
-
+          this.useridtest = user.userProfile.id;
+           console.log('user', user);
           const state = _.find(this.userProfile.userLocations, (locations) => {
             return locations.type === 'state';
           });
@@ -222,8 +239,23 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       }
     };
     this.setInteractEventData();
+    this.abtesting();
   }
+abtesting() {
+  const hashUserId = window.btoa(this.useridtest);
 
+// if (this.useridtest === 'b2479136-8608-41c0-b3b1-283f38c338ed') {
+//   this.abtest = true;
+// }
+if (count(hashUserId, 0) > 3) {
+  this.abtest = true;
+  console.log('Show New UI');
+ } else {
+  this.abtest = false;
+
+ console.log('Show old UI');
+ }
+}
   getOrgDetails() {
     let orgList = [];
     this.roles = [];
