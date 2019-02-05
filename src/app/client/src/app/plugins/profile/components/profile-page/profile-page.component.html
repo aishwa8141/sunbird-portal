@@ -681,10 +681,10 @@
         >
           <!--contributions view starts-->
           <div
-            class="fs-1-7 font-w-bold pl-20 mobile only"
+            class="fs-1-7 font-w-bold text-ac pl-20 mobile only"
             *ngIf="contributions && contributions.length > 0"
           >
-            {{ resourceService.frmelmnts.scttl.contributions }}
+            {{ resourceService.frmelmnts.scttl.contributions }} &nbsp;<span class="ui violet circular label align center fs-1 font-weight-bold"> {{contributions.length}}</span>
 
           </div>
           <div class="ui divider my-5 mobile only"></div>
@@ -695,7 +695,7 @@
             *ngIf="contributions && contributions.length > 0"
           >
             <div class="computer only">
-              <div class="fs-1-7 pl-10 font-w-bold">
+              <div class="fs-1-7 pl-10 text-ac font-w-bold">
                 {{ resourceService.frmelmnts.scttl.contributions }} <span class="ui violet circular label align center fs-1 font-weight-bold"> {{contributions.length}}</span>
               </div>
             </div>
