@@ -29,7 +29,6 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
   */
   userProfile: any;
 
-  useridtest: any;
 
   abtest =  false;
 
@@ -203,7 +202,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       (user: IUserData) => {
         if (user && !user.err) {
           this.userProfile = user.userProfile;
-          this.useridtest = user.userProfile.id;
+          this.abtesting(user.userProfile.id);
            console.log('user', user);
           const state = _.find(this.userProfile.userLocations, (locations) => {
             return locations.type === 'state';
@@ -239,14 +238,10 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       }
     };
     this.setInteractEventData();
-    this.abtesting();
-  }
-abtesting() {
-  const hashUserId = window.btoa(this.useridtest);
 
-// if (this.useridtest === 'b2479136-8608-41c0-b3b1-283f38c338ed') {
-//   this.abtest = true;
-// }
+  }
+abtesting(userid) {
+  const hashUserId = window.btoa(userid);
 if (count(hashUserId, 0) > 3) {
   this.abtest = true;
   console.log('Show New UI');

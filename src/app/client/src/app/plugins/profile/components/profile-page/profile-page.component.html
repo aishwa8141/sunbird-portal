@@ -557,7 +557,7 @@
 
           <div
             (click)="showContactPopup = true; contactType = 'phone'"
-            class="ui semi-circular update basic label mb-15 cursor-pointer font-weight-normal"
+            class="ui update mb-15 cursor-pointer font-weight-normal"
             *ngIf="!userProfile.phone"
             appTelemetryInteract
             [telemetryInteractObject]="telemetryInteractObject"
@@ -661,7 +661,7 @@
             [name]="'profile-widget'"
           ></extension-point>
         </div>
-        <div class="ui raised very padded container segment" id="shadow">
+        <div class="ui raised very padded container segment" id="shadow" *ngIf="roles && roles.length > 0">
           <h3 class="fs-1-7 font-weight-bold text-ac">Roles</h3>
           <div
             class="mb-15 text-ac profile-label-container"
