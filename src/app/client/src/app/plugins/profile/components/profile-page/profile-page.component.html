@@ -547,9 +547,9 @@
             ></i>
             &#x200E;+91
             {{ userProfile.phone }}
-            <span class="pl-30 fs-1-5"  id="span-right">
+            <span class="pl-20 fs-1-5"  id="span-right">
               <i
-                class="pencil alternate blue icon cursor-pointer"
+                class="edit outline small blue icon cursor-pointer"
                 (click)="showContactPopup = true; contactType = 'phone'"
               ></i>
             </span>
@@ -569,9 +569,9 @@
 
           <p *ngIf="userProfile.email">
             <i class="mail icon mr-5"></i> {{ userProfile.email }}
-            <span class="pl-30 fs-1-5">
+            <span class="pl-20 fs-1-5">
             <i
-            class="pencil alternate blue icon cursor-pointer"
+            class="edit outline small blue icon cursor-pointer"
               (click)="showContactPopup = true; contactType = 'email'"
               appTelemetryInteract
               [telemetryInteractObject]="telemetryInteractObject"
@@ -610,12 +610,12 @@
               class="edit blue icon"
             ></i
           ></span> -->
-          <button class="ui active blue button right floated"   appTelemetryInteract
+          <button class="ui basic mini blue button right floated"   appTelemetryInteract
           [telemetryInteractObject]="telemetryInteractObject"
           [telemetryInteractEdata]="myFrameworkEditEdata"
           (click)="showEdit = !showEdit">
-              <i class="pencil alternate icon"></i>
-              edit
+
+              Edit &nbsp;&nbsp; <i class="pencil alternate icon"></i>
             </button>
         </div>
         <div class="mb-15">
