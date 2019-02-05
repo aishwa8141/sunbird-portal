@@ -242,13 +242,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
   }
 abtesting(userid) {
   const hashUserId = window.btoa(userid);
-if (count(hashUserId, 0) > 3) {
+if (count(hashUserId, 1) >= 1) {
   this.abtest = true;
-  console.log('Show New UI');
+  console.log('Show New UI', hashUserId);
  } else {
   this.abtest = false;
 
- console.log('Show old UI');
+ console.log('Show old UI',  hashUserId);
  }
 }
   getOrgDetails() {
