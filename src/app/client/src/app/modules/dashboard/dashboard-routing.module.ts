@@ -13,7 +13,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'activity/courseim/consumption/:id/:timePeriod', component: CourseConsumptionComponent,
+    path: 'activity/course/consumption/:id/:timePeriod', component: CourseConsumptionComponent,
     data: {
       telemetry: { env: 'course', pageid: 'course-creator-dashboard', type: 'view' },
       breadcrumbs: [{ label: 'Home', url: '/home' },
